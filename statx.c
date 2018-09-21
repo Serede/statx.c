@@ -40,22 +40,38 @@ int main(int argc, char const *argv[]) {
     printf("stx_atime: %");
     tmtime = localtime(&(statxbuf.stx_atime.tv_sec));
     strftime(tmbuf, sizeof(tmbuf), "%Y-%m-%d %H:%M:%S", tmtime);
-    printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_atime.tv_nsec);
+    if (statxbuf.stx_atime.tv_sec == 0) {
+        printf("-\n");
+    } else {
+        printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_atime.tv_nsec);
+    }
 
     printf("stx_btime: %");
     tmtime = localtime(&(statxbuf.stx_btime.tv_sec));
     strftime(tmbuf, sizeof(tmbuf), "%Y-%m-%d %H:%M:%S", tmtime);
-    printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_btime.tv_nsec);
+    if (statxbuf.stx_btime.tv_sec == 0) {
+        printf("-\n");
+    } else {
+        printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_btime.tv_nsec);
+    }
 
     printf("stx_ctime: %");
     tmtime = localtime(&(statxbuf.stx_ctime.tv_sec));
     strftime(tmbuf, sizeof(tmbuf), "%Y-%m-%d %H:%M:%S", tmtime);
-    printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_ctime.tv_nsec);
+    if (statxbuf.stx_ctime.tv_sec == 0) {
+        printf("-\n");
+    } else {
+        printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_ctime.tv_nsec);
+    }
 
     printf("stx_mtime: %");
     tmtime = localtime(&(statxbuf.stx_mtime.tv_sec));
     strftime(tmbuf, sizeof(tmbuf), "%Y-%m-%d %H:%M:%S", tmtime);
-    printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_mtime.tv_nsec);
+    if (statxbuf.stx_mtime.tv_sec == 0) {
+        printf("-\n");
+    } else {
+        printf("%s.%" PRIu32 "\n", tmbuf, statxbuf.stx_mtime.tv_nsec);
+    }
 
     printf("stx_rdev_major: %" PRIu32 "\n", statxbuf.stx_rdev_major);
     printf("stx_rdev_minor: %" PRIu32 "\n", statxbuf.stx_rdev_minor);
