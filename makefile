@@ -1,9 +1,11 @@
+CC = gcc
+CFLAGS= -Wall -Wno-format -pedantic -ansi
 BIN = statx
 
 all: ${BIN}
 
 ${BIN}: statx.c
-	gcc -o $@ $^
+	${CC} ${CFLAGS} -o $@ $^
 
 .PHONY: clean
 clean:
