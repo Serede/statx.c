@@ -118,11 +118,6 @@ int main(int argc, char **argv) {
         return ret;
     }
 
-    /* File not specified */
-    if (arguments.args[0] == NULL) {
-        argp_usage(NULL);
-    }
-
     /* Syscall to statx */
     ret = syscall(SYS_statx, AT_FDCWD, arguments.args[0],
                   AT_STATX_SYNC_AS_STAT | AT_EMPTY_PATH, STATX_ALL, &statxbuf);
